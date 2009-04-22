@@ -1,0 +1,7 @@
+<h1>Subscribe to the Easter Reminder</h1>
+
+<% form_for @subscription do |form| -%>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <%= submit_tag 'Subscribe' %>
+<% end -%>
