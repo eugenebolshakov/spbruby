@@ -1,1 +1,8 @@
+<p>
+<% if @easter.orthodox_date > Time.now %>
+  Orthodox Easter is coming in <%= distance_of_time_in_words(Time.now, @easter.orthodox_date) %>
+<% else -%>
+  Orthodox Easter has passed this year. Next Easter date is <%= @next_easter.orthodox_date.strftime('%-1d %B %Y') %>
+<% end -%>
+
 <p>Ever wanted to be aware of Easter a week before it comes? <%= link_to 'Subscribe to the reminder', new_subscription_path %></p>

@@ -13,3 +13,17 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+
+require "spec/mocks"
+
+Before do
+  $rspec_mocks ||= Spec::Mocks::Space.new
+end
+
+After do
+  begin
+    $rspec_mocks.verify_all
+  ensure
+    $rspec_mocks.reset_all
+  end
+end
