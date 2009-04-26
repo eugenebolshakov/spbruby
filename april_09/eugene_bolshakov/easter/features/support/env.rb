@@ -27,3 +27,11 @@ After do
     $rspec_mocks.reset_all
   end
 end
+
+module EasterEggs
+  def send_reminders_out
+    Subscription.send_reminders_out
+  end
+end
+
+World(EasterEggs)

@@ -4,11 +4,13 @@ When /^I subscribe with "(.*)"$/ do |email|
 end
 
 Given /^there are the following subscribers:$/ do |table|
-  table.hashes.each { |s| Subscription.create(s) }
+  @subscribers = table.hashes.inject([]) do |r, s|
+    r << Subscription.create(s); r
+  end
 end
 
 When /^reminders are sent out$/ do
-  Subscription.send_reminders_out
+  send_reminders_out
 end
 
 Then /^(\d+) (people|person) should receive emails?$/ do |emails_number, ignore|
@@ -18,4 +20,6 @@ Then /^(\d+) (people|person) should receive emails?$/ do |emails_number, ignore|
     email.subject.should eql("Easter's Coming")
     email.body.should include("Don't forget to celebrate")
   end
+  @subscribers.collect(&:email).should == 
+    emails.collect(&:to).flatten
 end

@@ -8,11 +8,8 @@ Feature: Display Next Easter Date
     When I go to "the homepage"
     Then I should see "Orthodox Easter is coming in 1 day"
 
-  @current
   Scenario: Easter has passed already
     Given today is "20 April 2009"
     When I go to "the homepage"
     Then I should see "Orthodox Easter has passed this year"
     And I should see "Next Easter date is 4 April 2010"
-
-
