@@ -4,7 +4,7 @@ Feature: Subscribe to and receive Easter reminder
   I should be able to subscribe to and receive Easter reminder
 
   Scenario: Subscription
-    When I go to "the homepage"
+    When I go to the homepage
     And I follow "Subscribe to the reminder"
     And I subscribe with "eugene.bolshakov@gmail.com"
     Then I should see "You've been subscribed!"
