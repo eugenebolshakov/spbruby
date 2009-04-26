@@ -1,0 +1,12 @@
+<h1>Sell me</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+  </tr>
+  <% @subscriptions.each do |s| -%>
+    <tr>
+      <td><%= h s.email %></td>
+    </tr>
+  <% end -%>
+</table>

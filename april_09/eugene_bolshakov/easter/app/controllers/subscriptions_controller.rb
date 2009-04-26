@@ -12,4 +12,8 @@ class SubscriptionsController < ApplicationController
       render :action => :new
     end
   end
+
+  def index
+    @subscriptions = Subscription.all
+  end
 end
